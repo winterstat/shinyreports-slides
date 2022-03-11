@@ -43,6 +43,7 @@ style_mono_accent(
   header_h3_font_size = "1.25rem",
   footnote_font_size = "0.7em",
   text_font_size = "1.25rem",
+  code_font_size = "1.25rem",
 )
 ```
 
@@ -161,6 +162,13 @@ class: inverse center middle
 ---
 # Approach 1: Further Resources
 
+- RMarkdown Cookbook has a [chapter on parameterized reports](https://bookdown.org/yihui/rmarkdown-cookbook/parameterized-reports.html)
+
+- The RMarkdown Cookbook is a great resource in general
+
+- Gallery of [RMarkdown HTML Themes](https://www.datadreaming.org/post/r-markdown-theme-gallery/)
+
+
 ---
 # Approach 1: Recap
 
@@ -199,6 +207,29 @@ class: inverse center middle
 
 ---
 # Approach 2: Further Resources
+
+We only used `body_add_par()`, `body_add_fpar()`, `body_add_gg()`, and `body_add_flextable()`. There are many more options: 
+
+```{r, eval = FALSE, echo = TRUE}
+body_add_break() # Add page break
+body_add_caption() # Add figure/table caption (Word field)
+body_add_docx() # Insert document
+body_add_img() # Add image
+body_add_plot() # Add base plot
+body_add_table() # Add table
+body_add_toc() # Add table of content
+body_add_chart() # Add Office style chart (requires mschart package)
+```
+---
+# Approach 2: Further Resources
+
+We only used `fp_text()`,`ftext()`, and `fpar()` to format text, but you can also format paragraphs, and borders and cells in conjunction with `body_add_flextable()`: 
+
+```{r, eval = FALSE, echo = TRUE}
+fp_par() # Paragraph formatting: text.align, padding, line_spacing, etc.
+fp_border() # Borders: color, width, style
+fp_cell() # Borders: color, width, style
+```
 
 ---
 # Approach 2: Recap
@@ -241,6 +272,17 @@ class: inverse center middle
 ---
 # Approach 3: Further Resources
 
+- Can also include code for sections, landscape or portrait, where to include the ToC, crossrefences, multicolumn pages, etc. etc.
+
+- `officedown` also allows you to add additional chunk options to your R chunks, e.g.:
+
+````markdown
+`r ''````{r, fig.cap="economics plot", fig.id = "tsplot", 
+fig.cap.style = "Image Caption"}
+#plot(cars)
+```
+````
+
 ---
 # Approach 3: Recap
 
@@ -275,6 +317,9 @@ class: inverse center middle
 
 - But it's so worth it!
 
+.footnote[
+Connect with me on Twitter at [@winterstat](https://twitter.com/winterstat)
+]
 ---
 
 
@@ -284,6 +329,8 @@ class: inverse center middle
 # Thank you!
 
 ## Questions?
+
+
 ]
 
 .pull-right[
@@ -291,6 +338,7 @@ class: inverse center middle
 knitr::include_graphics("media/nina_question.jpg")
 ```
 ]
+
 
 
 
